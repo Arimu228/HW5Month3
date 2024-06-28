@@ -23,16 +23,21 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("CommitTransaction")
     private fun listener() {
-        binding.button.setOnClickListener {
+        binding.btnPlus.setOnClickListener {
             binding.counter.text = counterValue.toString()
             counterValue++
             if (counterValue == 11) {
                 supportFragmentManager.beginTransaction()
                     .replace(android.R.id.content, SecondFragment())
                     .commit()
-                binding.button.visibility = View.GONE
+                binding.btnPlus.visibility = View.GONE
                 binding.counter.visibility = View.GONE
             }
+        }
+        binding.btnMinus.setOnClickListener {
+
+            binding.counter.text = counterValue.toString()
+            counterValue--
         }
     }
 }
